@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PurchaseStatus index{% endblock %}
+
+{% block body %}
+    <h1>PurchaseStatus index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Initial</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for purchase_status in purchase_statuses %}
+            <tr>
+                <td>{{ purchase_status.id }}</td>
+                <td>{{ purchase_status.initial ? 'Yes' : 'No' }}</td>
+                <td>{{ purchase_status.name }}</td>
+                <td>
+                    <a href="{{ path('app_purchase_status_show', {'id': purchase_status.id}) }}">show</a>
+                    <a href="{{ path('app_purchase_status_edit', {'id': purchase_status.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_purchase_status_new') }}">Create new</a>
+{% endblock %}

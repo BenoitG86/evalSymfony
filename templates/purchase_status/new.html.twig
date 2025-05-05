@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PurchaseStatus{% endblock %}
+
+{% block body %}
+    <h1>Create new PurchaseStatus</h1>
+
+    {{ include('purchase_status/_form.html.twig') }}
+
+    <a href="{{ path('app_purchase_status_index') }}">back to list</a>
+{% endblock %}

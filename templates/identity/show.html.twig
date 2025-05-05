@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Identity{% endblock %}
+
+{% block body %}
+    <h1>Identity</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ identity.id }}</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>{{ identity.surname }}</td>
+            </tr>
+            <tr>
+                <th>Last_name</th>
+                <td>{{ identity.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ identity.address }}</td>
+            </tr>
+            <tr>
+                <th>Postal_code</th>
+                <td>{{ identity.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ identity.country }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_identity_index') }}">back to list</a>
+
+    <a href="{{ path('app_identity_edit', {'id': identity.id}) }}">edit</a>
+
+    {{ include('identity/_delete_form.html.twig') }}
+{% endblock %}

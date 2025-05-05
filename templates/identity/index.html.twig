@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Identity index{% endblock %}
+
+{% block body %}
+    <h1>Identity index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Surname</th>
+                <th>Last_name</th>
+                <th>Address</th>
+                <th>Postal_code</th>
+                <th>Country</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for identity in identities %}
+            <tr>
+                <td>{{ identity.id }}</td>
+                <td>{{ identity.surname }}</td>
+                <td>{{ identity.lastName }}</td>
+                <td>{{ identity.address }}</td>
+                <td>{{ identity.postalCode }}</td>
+                <td>{{ identity.country }}</td>
+                <td>
+                    <a href="{{ path('app_identity_show', {'id': identity.id}) }}">show</a>
+                    <a href="{{ path('app_identity_edit', {'id': identity.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_identity_new') }}">Create new</a>
+{% endblock %}
